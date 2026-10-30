@@ -1,0 +1,61 @@
+{
+  "model": "MobileNetV2 (ImageNet) + transfer learning",
+  "input": {
+    "size": 224,
+    "dtype": "float32",
+    "range": "0-255 (model menormalisasi internal ke [-1,1])"
+  },
+  "class_order": [
+    "ringan",
+    "sedang",
+    "berat"
+  ],
+  "dataset": {
+    "kaggle": "juusos/rdd2022es",
+    "license": "CC BY-NC-SA 4.0",
+    "mapping": {
+      "longitudinal crack": "ringan",
+      "transverse crack": "ringan",
+      "longitudinal crack wide": "sedang",
+      "transverse crack wide": "sedang",
+      "alligator crack": "sedang",
+      "pothole": "sedang",
+      "alligator crack sunken": "berat",
+      "pothole deep": "berat"
+    },
+    "train": {
+      "ringan": 3000,
+      "sedang": 3000,
+      "berat": 880
+    },
+    "val": {
+      "ringan": 600,
+      "sedang": 600,
+      "berat": 209
+    },
+    "test": {
+      "ringan": 600,
+      "sedang": 600,
+      "berat": 191
+    }
+  },
+  "metrics": {
+    "accuracy": 0.7203450754852624,
+    "f1_macro": 0.6898746755935914,
+    "f1_weighted": 0.7193958872942913
+  },
+  "files": {
+    "main": "snaproad_mobilenetv2_fp16.tflite",
+    "int8": "snaproad_mobilenetv2_int8.tflite"
+  },
+  "tflite_inference": {
+    "input_dtype": "<class 'numpy.float32'>",
+    "keras_tflite_agreement": 1.0,
+    "cpu_latency_ms": 9.056036533343104
+  },
+  "versions": {
+    "tensorflow": "2.21.0",
+    "python": "3.13.16"
+  },
+  "created_at": "2026-10-30T03:22:33.363245+00:00"
+}
